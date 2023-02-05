@@ -23,6 +23,12 @@ export default {
                     profiles: ['*']
                 },
                 {
+                    title: 'Parrain',
+                    routeName: 'parrain-index',
+                    icon: 'mdi-card-account-details-outline',
+                    profiles: ['*']
+                },
+                {
                     title: 'Localite',
                     routeName: 'localite-index',
                     icon: 'mdi-card-account-details-outline',

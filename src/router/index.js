@@ -51,6 +51,16 @@ const router = new VueRouter({
                     meta: { requiresAuth: true },
                     component: () => import('../views/LocaliteIndex.vue'),
                 },
+                {
+                    path: '/localites/:localiteId',
+                    name: 'localite-show',
+                    component: () => import('../views/LocaliteShow.vue')
+                },
+                {
+                    path: '/parrains',
+                    name: 'parrain-index',
+                    component: () => import('../views/ParrainIndex.vue')
+                },
             ]
         },
 
@@ -71,10 +81,11 @@ router.beforeEach((to, from, next) => {
     const loginQuery = { path: "/login", query: { redirect: to.fullPath } }
   
     if (reqAuth && !authUser) {
-        const authToken = store.getters["auth/authToken"];
+        const authToken = store.getters["auth/authToken"]
         if (authToken) {
             whoami().then(response => {
-                store.commit('auth/setUser', response);
+                store.commit('auth/setUser', response)
+                next()
             })
             // .catch(error => {
             //     this.$swal({
@@ -83,7 +94,6 @@ router.beforeEach((to, from, next) => {
             //         text: error.message
             //     });
             // })
-            next()
         } else {
             next(loginQuery)
         }

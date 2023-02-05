@@ -1,4 +1,4 @@
-# quatar2022-client
+# parrainage_b2c
 
 ## Project setup
 ```

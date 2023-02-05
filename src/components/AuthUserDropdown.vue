@@ -95,8 +95,8 @@
 </template>
 
 <script>
-import useAuth from "../hooks/auth";
-const { logout } = useAuth()
+import useAuth from "@/hooks/auth";
+const { whoami, logout } = useAuth()
 
 export default {
     name: 'AuthUserDropdown',
@@ -110,6 +110,11 @@ export default {
         user() {
             return this.$store.state.auth.user
         }
+    },
+    created() {
+        whoami().then(response => {
+            this.$store.commit('auth/setUser', response);
+        })
     },
     methods: {
         handleLogout() {

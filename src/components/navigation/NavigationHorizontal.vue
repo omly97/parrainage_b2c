@@ -18,12 +18,11 @@
 export default {
     name: 'NavigationHorizontal',
     computed: {
-        userComputed() {
+        authUser() {
             return this.$store.state.auth.user
         },
         menuComputed() {
-            return this.$store.getters['app/menu']("*")
-            // return this.$store.getters['app/menu'](this.userComputed.profile)
+            return this.$store.getters['app/menu'](this.authUser.profile)
         }
     }
 }

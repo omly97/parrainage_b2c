@@ -28,6 +28,8 @@ Vue.filter('time', (date) => {
   return moment(date).format('HH:mm')
 })
 
+export const bus = new Vue();
+
 new Vue({
   vuetify,
   router,

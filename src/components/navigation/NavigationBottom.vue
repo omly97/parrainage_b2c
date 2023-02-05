@@ -23,15 +23,14 @@ export default {
         bottom: 0,
     }),
     computed: {
-        userComputed() {
+        authUser() {
             return this.$store.state.auth.user
         },
         appName() {
             return this.$store.getters['app/name']
         },
         menuComputed() {
-            return this.$store.getters['app/menu']("*")
-            // return this.$store.getters['app/menu'](this.userComputed.profile)
+            return this.$store.getters['app/menu'](this.authUser.profile)
         }
     }
 }

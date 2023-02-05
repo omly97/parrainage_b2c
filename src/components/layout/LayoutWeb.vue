@@ -1,13 +1,5 @@
 <template>
     <v-app>
-        <!-- <v-navigation-drawer
-            v-model="sidebar"
-            app
-            dark
-        >
-            <navigation-vertical></navigation-vertical>
-        </v-navigation-drawer> -->
-
         <v-app-bar
             app
             dark
@@ -30,9 +22,7 @@
         </v-app-bar>
 
         <v-main>
-            <v-container>
-                <router-view></router-view>
-            </v-container>
+            <router-view></router-view>
         </v-main>
 
         <v-footer app dark padless>
@@ -48,14 +38,12 @@
 <script>
 import AuthUserDropdown from "../AuthUserDropdown.vue"
 import NavigationHorizontal from "../navigation/NavigationHorizontal.vue"
-// import NavigationVertical from '../navigation/NavigationVertical.vue'
 
 export default {
     name: 'LayoutWeb',
     components: {
         AuthUserDropdown,
         NavigationHorizontal,
-        // NavigationVertical
     },
     data: () => ({
         sidebar: true
