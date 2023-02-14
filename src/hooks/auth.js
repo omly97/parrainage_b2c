@@ -1,4 +1,6 @@
 import axios from "../plugins/axios";
+import store from "@/store/index";
+import router from "@/router/index";
 
 export default function usePassword() {
 
@@ -88,6 +90,8 @@ export default function usePassword() {
         return new Promise((resolve, reject) => {
             axios.post('auth/logout')
                 .then(() => {
+                    store.dispatch("auth/logout")
+                    router.push({ name: 'auth-login' })
                     resolve()
                 })
                 .catch(error => {

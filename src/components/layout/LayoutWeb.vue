@@ -18,7 +18,7 @@
             <v-spacer></v-spacer>
             <navigation-horizontal></navigation-horizontal>
             <v-spacer></v-spacer>
-            <auth-user-dropdown></auth-user-dropdown>
+            <w-auth-user-dropdown></w-auth-user-dropdown>
         </v-app-bar>
 
         <v-main>
@@ -36,13 +36,13 @@
 </template>
 
 <script>
-import AuthUserDropdown from "../AuthUserDropdown.vue"
+import WAuthUserDropdown from "../web/WAuthUserDropdown.vue"
 import NavigationHorizontal from "../navigation/NavigationHorizontal.vue"
 
 export default {
     name: 'LayoutWeb',
     components: {
-        AuthUserDropdown,
+        WAuthUserDropdown,
         NavigationHorizontal,
     },
     data: () => ({

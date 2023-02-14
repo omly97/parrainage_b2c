@@ -30,7 +30,9 @@ export default {
             return this.$store.getters['app/name']
         },
         menuComputed() {
-            return this.$store.getters['app/menu'](this.authUser.profile)
+            return this.authUser
+                ? this.$store.getters['app/menu'](this.authUser.profile)
+                : []
         }
     }
 }

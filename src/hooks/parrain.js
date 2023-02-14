@@ -103,11 +103,12 @@ export default function useParrain() {
     /**
      * [ CRUD ] List des parrains
      */
-    const index = () => {
+    const index = (pushData=false) => {
         return new Promise((resolve, reject) => {
             axios.get(resource, { params: parrainArray.meta.pagination })
                 .then(response => {
-                    parrainArray.data = response.data;
+                    if (pushData) parrainArray.data = parrainArray.data.concat(response.data)
+                    else parrainArray.data = response.data;
                     parrainArray.meta.totalPage = response.meta.last_page;
                     resolve();
                 })

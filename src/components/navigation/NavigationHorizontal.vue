@@ -22,7 +22,9 @@ export default {
             return this.$store.state.auth.user
         },
         menuComputed() {
-            return this.$store.getters['app/menu'](this.authUser.profile)
+            return this.authUser
+                ? this.$store.getters['app/menu'](this.authUser.profile)
+                : []
         }
     }
 }

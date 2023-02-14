@@ -1,10 +1,12 @@
 <template>
     <v-form @submit.prevent="update ? updateParrain() : storeParrain()">
-        <v-row dense>
+        <v-row dense :no-gutters="mobile">
             <!-- nom -->
             <v-col cols="12" md="6">
                 <v-text-field
-                    outlined
+                    :outlined="!mobile"
+                    :filled="mobile"
+                    :rounded="mobile"
                     clearable
                     label="Nom"
                     prepend-inner-icon="mdi-face-man"
@@ -16,9 +18,11 @@
             <!-- prenom -->
             <v-col cols="12" md="6">
                 <v-text-field
-                    outlined
+                    :outlined="!mobile"
+                    :filled="mobile"
+                    :rounded="mobile"
                     clearable
-                    label="prenom"
+                    label="Prenom"
                     prepend-inner-icon="mdi-face-man"
                     v-model="formData.fields.prenom"
                     :error-messages="formData.errors.prenom"
@@ -34,7 +38,9 @@
                 >
                     <template v-slot:activator="{ on, attrs }">
                         <v-text-field
-                            outlined
+                            :outlined="!mobile"
+                            :filled="mobile"
+                            :rounded="mobile"
                             clearable
                             readonly
                             label="Date naissance"
@@ -53,9 +59,11 @@
             <!-- lieu_naissance -->
             <v-col cols="12" md="6">
                 <v-text-field
-                    outlined
+                    :outlined="!mobile"
+                    :filled="mobile"
+                    :rounded="mobile"
                     clearable
-                    label="lieu_naissance"
+                    label="Lieu naissance"
                     prepend-inner-icon="mdi-map-marker"
                     v-model="formData.fields.lieu_naissance"
                     :error-messages="formData.errors.lieu_naissance"
@@ -66,9 +74,11 @@
             <v-col cols="12" md="6">
                 <v-select
                     :items="['M', 'F']"
-                    label="Profile"
-                    outlined
-                    prepend-inner-icon="mdi-map-marker"
+                    label="Sexe"
+                    :outlined="!mobile"
+                    :filled="mobile"
+                    :rounded="mobile"
+                    prepend-inner-icon="mdi-gender-male-female"
                     v-model="formData.fields.sexe"
                     :error-messages="formData.errors.sexe"
                 />
@@ -77,9 +87,11 @@
             <!-- taille -->
             <v-col cols="12" md="6">
                 <v-text-field
-                    outlined
+                    :outlined="!mobile"
+                    :filled="mobile"
+                    :rounded="mobile"
                     clearable
-                    label="taille (en cm)"
+                    label="Taille (en cm)"
                     prepend-inner-icon="mdi-code-array"
                     v-model="formData.fields.taille"
                     :error-messages="formData.errors.taille"
@@ -95,7 +107,9 @@
                 >
                     <template v-slot:activator="{ on, attrs }">
                         <v-text-field
-                            outlined
+                            :outlined="!mobile"
+                            :filled="mobile"
+                            :rounded="mobile"
                             clearable
                             readonly
                             label="Date delivrance"
@@ -120,7 +134,9 @@
                 >
                     <template v-slot:activator="{ on, attrs }">
                         <v-text-field
-                            outlined
+                            :outlined="!mobile"
+                            :filled="mobile"
+                            :rounded="mobile"
                             clearable
                             readonly
                             label="Date expiration"
@@ -139,7 +155,9 @@
             <!-- numero_cin -->
             <v-col cols="12" md="6">
                 <v-text-field
-                    outlined
+                    :outlined="!mobile"
+                    :filled="mobile"
+                    :rounded="mobile"
                     clearable
                     label="Numero CIN"
                     prepend-inner-icon="mdi-ticket-confirmation-outline"
@@ -151,7 +169,9 @@
             <!-- numero_electeur -->
             <v-col cols="12" md="6">
                 <v-text-field
-                    outlined
+                    :outlined="!mobile"
+                    :filled="mobile"
+                    :rounded="mobile"
                     clearable
                     label="Numero electeur"
                     prepend-inner-icon="mdi-ticket-confirmation-outline"
@@ -183,6 +203,10 @@ export default {
             default: '' 
         },
         update: {
+            type: Boolean,
+            default: false
+        },
+        mobile: {
             type: Boolean,
             default: false
         }

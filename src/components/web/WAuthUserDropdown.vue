@@ -39,7 +39,7 @@
                 <v-divider></v-divider>
 
                 <v-list>
-                    <v-list-item link :to="{ name: 'home' }">
+                    <v-list-item link :to="{ name: 'home-web' }">
                         <v-list-item-icon>
                             <v-icon>mdi-home</v-icon>
                         </v-list-item-icon>
@@ -120,8 +120,7 @@ export default {
         handleLogout() {
             this.dialog = true;
             logout().then(() => {
-                this.$store.dispatch("auth/logout")
-                this.$router.push({ name: 'auth-login' })
+                console.log("logout successfully")
             }).catch(error => {
                 this.dialog = false;
                 this.$swal({

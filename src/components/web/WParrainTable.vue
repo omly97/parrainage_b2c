@@ -58,17 +58,17 @@
         </v-simple-table>
 
         <v-dialog v-if="dialog" v-model="dialog" width="600">
-            <x-parrain-card :parrain="parrainItem"></x-parrain-card>
+            <w-parrain-card :parrain="parrainItem"></w-parrain-card>
         </v-dialog>
     </div>
 </template>
 
 <script>
 import ParrainFormModal from '../ParrainFormModal.vue'
-import XParrainCard from './XParrainCard.vue'
+import WParrainCard from './WParrainCard.vue'
 
 export default {
-    components: { ParrainFormModal, XParrainCard },
+    components: { ParrainFormModal, WParrainCard },
     name: 'XParrainTable',
     props: {
         parrains: {
@@ -90,12 +90,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-td {
-    -webkit-user-select: none; /* Safari */        
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+/Edge */
-    user-select: none; /* Standard */
-}
-</style>

@@ -1,6 +1,11 @@
 <template>
-    <v-card class="pa-14">
+    <v-card class="pa-10">
         <div class="text-center text-h5 font-weight-bold mb-8">Connexion</div>
+        <v-alert
+            v-if="error.occured"
+            type="error"
+            text
+        >{{ error.message }}</v-alert>
         <v-form @submit.prevent="submit">
             <v-text-field
                 outlined
@@ -59,11 +64,13 @@ export default {
             login()
                 .then(response => {
                     if (response.success == false) {
-                        this.$swal({
-                            icon: 'warning',
-                            title: 'Oops...',
-                            text: response.message
-                        })
+                        this.error.occured = true
+                        this.error.message = response.message
+                        // this.$swal({
+                        //     icon: 'warning',
+                        //     title: 'Oops...',
+                        //     text: response.message
+                        // })
                     } else {
                         this.$store.commit('auth/setUser', response.user)
                         this.$store.commit('auth/setToken', response.token)

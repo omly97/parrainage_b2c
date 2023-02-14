@@ -30,7 +30,7 @@
 
 <script>
 export default {
-    name: 'XLocaliteTable',
+    name: 'XwLocaliteTable',
     props: {
         localites: {
             type: Array,
@@ -39,12 +39,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-td {
-    -webkit-user-select: none; /* Safari */        
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+/Edge */
-    user-select: none; /* Standard */
-}
-</style>

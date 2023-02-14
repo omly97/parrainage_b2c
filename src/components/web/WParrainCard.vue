@@ -52,7 +52,7 @@
 
 <script>
 export default {
-    name: 'XParrainCard',
+    name: 'WParrainCard',
     props: {
         parrain: {
             type: Object,

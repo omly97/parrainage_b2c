@@ -2,8 +2,14 @@ export default {
     namespaced: true,
 
     state: () => ({
-        // 
+        currentPageTitle: null
     }),
+
+    mutations: {
+        setCurrentPageTitle (state, title) {
+            state.currentPageTitle = title;
+        }
+    },
 
     getters: {
         name: () => {
@@ -11,6 +17,9 @@ export default {
                 title: "Parrainage B2C",
                 subtitle: "Espace de gestiion"
             }
+        },
+        pageTitle: (state) => {
+            return state.currentPageTitle
         },
         menu: () => (userProfile) => {
             // const PROFILE_COLLECTEUR = "collecteur";
@@ -31,7 +40,7 @@ export default {
                 {
                     title: 'Localite',
                     routeName: 'localite-index',
-                    icon: 'mdi-card-account-details-outline',
+                    icon: 'mdi-map-marker-outline',
                     profiles: ['*']
                 },
             ]

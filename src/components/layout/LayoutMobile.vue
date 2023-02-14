@@ -13,11 +13,16 @@
             dark
             flat
         >
-            <span class="hidden-lg-and-up">
-                <v-app-bar-nav-icon
-                    @click="sidebar = !sidebar"
-                ></v-app-bar-nav-icon>
-            </span>
+            <v-app-bar-nav-icon
+                class="hidden-lg-and-up"
+                @click="sidebar = !sidebar"
+            ></v-app-bar-nav-icon>
+            <v-toolbar-title v-if="pageTitle">{{ pageTitle }}</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-btn icon>
+                <v-icon>mdi-magnify</v-icon>
+            </v-btn>
+            <m-parrain-menu></m-parrain-menu>
         </v-app-bar>
 
         <v-main>
@@ -29,14 +34,20 @@
 </template>
 
 <script>
+import MParrainMenu from '../mobile/MParrainMenu.vue'
 import NavigationBottom from '../navigation/NavigationBottom.vue'
 import NavigationVertical from '../navigation/NavigationVertical.vue'
 
 export default {
     name: 'MobileLayout',
-    components: { NavigationBottom, NavigationVertical },
+    components: { NavigationBottom, NavigationVertical, MParrainMenu },
     data: () => ({
         sidebar: false
-    })
+    }),
+    computed: {
+        pageTitle() {
+            return this.$store.getters['app/pageTitle']
+        },
+    }
 }
 </script>

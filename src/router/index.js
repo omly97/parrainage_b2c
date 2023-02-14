@@ -40,10 +40,16 @@ const router = new VueRouter({
                     component: () => import('../views/Dashboard.vue'),
                 },
                 {
-                    path: '/home',
-                    name: 'home',
+                    path: '/mobilehome',
+                    name: 'home-mobile',
                     meta: { requiresAuth: true },
-                    component: () => import('../views/Home.vue'),
+                    component: () => import('../views/HomeMobile.vue'),
+                },
+                {
+                    path: '/webhome',
+                    name: 'home-web',
+                    meta: { requiresAuth: true },
+                    component: () => import('../views/HomeWeb.vue'),
                 },
                 {
                     path: '/localites',
@@ -60,6 +66,11 @@ const router = new VueRouter({
                     path: '/parrains',
                     name: 'parrain-index',
                     component: () => import('../views/ParrainIndex.vue')
+                },
+                {
+                    path: '/create-parrainage',
+                    name: 'parrain-create',
+                    component: () => import('../views/ParrainCreate.vue')
                 },
             ]
         },
