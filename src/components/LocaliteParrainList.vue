@@ -68,13 +68,13 @@
 
 <script>
 import { bus } from '@/main';
-import useLocalite from "../hooks/localite";
+import useLocaliteParrain from "../hooks/LocaliteParrain";
 import XEmptyData from "./customs/XEmptyData.vue";
 import XNetworkError from "./customs/XNetworkError.vue";
 import WParrainTable from './web/WParrainTable.vue';
 import MParrainList from './mobile/MParrainList.vue';
 import MBtnLoadingMore from './mobile/MBtnLoadingMore.vue';
-const { parrainArray, parrains } = useLocalite()
+const { parrainArray, parrains } = useLocaliteParrain()
 
 export default {
     name: 'LocaliteParrainList',

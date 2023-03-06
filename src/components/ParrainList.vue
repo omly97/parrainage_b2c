@@ -67,14 +67,14 @@
 
 <script>
 import { bus } from '@/main';
-import useParrain from "../hooks/parrain";
+import useParrainIndex from "../hooks/ParrainIndex";
 import XEmptyData from "./customs/XEmptyData.vue";
 import XNetworkError from "./customs/XNetworkError.vue";
 import XLoaderList from './customs/XLoaderList.vue';
 import WParrainTable from './web/WParrainTable.vue';
 import MParrainList from './mobile/MParrainList.vue';
 import MBtnLoadingMore from './mobile/MBtnLoadingMore.vue';
-const { parrainArray, index } = useParrain()
+const { parrainArray, index } = useParrainIndex()
 
 export default {
     name: 'ParrainList',

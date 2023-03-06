@@ -1,4 +1,9 @@
-import axios from "../plugins/axios";
+import axios from "@/plugins/axios"
+import {
+    _createFormData,
+    _handleResponseError,
+    _handleFormErrors
+} from '@/helpers'
 
 export default function usePassword() {
 
@@ -15,48 +20,13 @@ export default function usePassword() {
         },
     }
 
-
-    const _createFormData = () => {
-        const form = new FormData();
-        Object.keys(passswordFormData.fields).forEach((key) => {
-            if (passswordFormData.fields[key] != null)
-                form.append(key, passswordFormData.fields[key]);
-        });
-        return form;
-    }
-
-    const _handleResponseError = (error) => {
-        return {
-            code: error.code,
-            message: error.message,
-            serverMessage: error.serverResponse ? error.responseData.message : "Something went wrong!",
-        }
-    }
-
-    const _handleFormErrors = (error) => {
-        if (error.serverResponse == true && error.responseData.errors != undefined) {
-            // Clean old errors
-            Object.keys(passswordFormData.errors).forEach((key) => {
-                passswordFormData.errors[key] = ""
-            })
-
-            // Add new errors
-            Object.keys(error.responseData.errors).forEach((key) => {
-                passswordFormData.errors[key] = error.responseData.errors[key][0];
-            });
-        }
-    }
-
     const _resetPasswordFormData = () => {
         passswordFormData.fields = {};
         passswordFormData.errors = {};
     }
 
-    /**
-     * [ CRUD ] Update resource
-     */
     const update = (userId, resetPassword) => {
-        let form = _createFormData();
+        let form = _createFormData(passswordFormData.fields);
         form.append("_method", 'PATCH');
         const url = resetPassword == true
             ? `users/${userId}/password/reset`
@@ -68,7 +38,7 @@ export default function usePassword() {
                     resolve(response);
                 })
                 .catch(error => {
-                    _handleFormErrors(error);
+                    _handleFormErrors(passswordFormData, error);
                     reject(_handleResponseError(error));
                 })
         })

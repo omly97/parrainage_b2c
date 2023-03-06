@@ -40,9 +40,9 @@
 import WLocaliteTabs from '@/components/web/WLocaliteTabs.vue'
 import LocaliteParrainList from '@/components/LocaliteParrainList.vue'
 import LocaliteUserList from '@/components/LocaliteUserList.vue';
-import useLocalite from "@/hooks/localite";
+import useLocaliteShow from "@/hooks/LocaliteShow";
 import MLocaliteTabs from '@/components/mobile/MLocaliteTabs.vue';
-const { find } = useLocalite()
+const { find } = useLocaliteShow()
 
 export default {
     name: 'LocaliteShow',

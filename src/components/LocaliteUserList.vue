@@ -68,13 +68,13 @@
 
 <script>
 import { bus } from '@/main';
-import useLocalite from "../hooks/localite";
+import useLocaliteUser from "../hooks/LocaliteUser";
 import XEmptyData from "./customs/XEmptyData.vue";
 import XNetworkError from "./customs/XNetworkError.vue";
 import WUserTable from './web/WUserTable.vue';
 import MUserList from './mobile/MUserList.vue';
 import MBtnLoadingMore from './mobile/MBtnLoadingMore.vue';
-const { userArray, users } = useLocalite()
+const { userArray, users } = useLocaliteUser()
 
 export default {
     name: 'LocaliteUserList',

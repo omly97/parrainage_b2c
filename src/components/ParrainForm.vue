@@ -192,8 +192,8 @@
 
 <script>
 import { bus } from '@/main';
-import useParrain from "@/hooks/parrain";
-const { parrainFormData, _resetParrainFormData, store, edit, update } = useParrain()
+import useParrainForm from "@/hooks/ParrainForm";
+const { parrainFormData, _resetParrainFormData, store, edit, update } = useParrainForm()
 
 export default {
     name: 'ParrainForm',

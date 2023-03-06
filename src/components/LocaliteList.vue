@@ -67,14 +67,14 @@
 
 <script>
 import { bus } from '@/main';
-import useLocalite from "../hooks/localite";
+import useLocaliteIndex from "../hooks/LocaliteIndex";
 import XEmptyData from "./customs/XEmptyData.vue";
 import XNetworkError from "./customs/XNetworkError.vue";
 import XLoaderList from './customs/XLoaderList.vue';
 import WLocaliteTable from './web/WLocaliteTable.vue';
 import MLocaliteList from './mobile/MLocaliteList.vue';
 import MBtnLoadingMore from './mobile/MBtnLoadingMore.vue';
-const { localiteArray, index } = useLocalite()
+const { localiteArray, index } = useLocaliteIndex()
 
 export default {
     name: 'LocaliteIndex',
