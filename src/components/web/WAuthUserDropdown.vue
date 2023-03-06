@@ -113,7 +113,8 @@ export default {
     },
     created() {
         whoami().then(response => {
-            this.$store.commit('auth/SET_USER', response);
+            this.$store.commit('auth/SET_USER', response.user);
+            this.$store.commit('auth/SET_LOCALITES', response.localites);
         })
     },
     methods: {

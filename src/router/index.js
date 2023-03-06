@@ -95,7 +95,8 @@ router.beforeEach((to, from, next) => {
         const authToken = store.getters["auth/authToken"]
         if (authToken) {
             whoami().then(response => {
-                store.commit('auth/SET_USER', response)
+                store.commit('auth/SET_USER', response.user)
+                store.commit('auth/SET_LOCALITES', response.localites)
                 next()
             })
             // .catch(error => {
