@@ -66,7 +66,7 @@ export default {
     },
     created() {
         whoami().then(response => {
-            this.$store.commit('auth/setUser', response);
+            this.$store.commit('auth/SET_USER', response);
         })
     }
 }

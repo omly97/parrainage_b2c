@@ -9,10 +9,10 @@ export default {
     }),
 
     mutations: {
-        setUser (state, user) {
+        SET_USER (state, user) {
             state.user = user;
         },
-        setToken(state, token) {
+        SET_TOKEN(state, token) {
             state.token = token
             localStorage.setItem(AUTH_TOKEN_NAME, token)
         }
@@ -35,13 +35,13 @@ export default {
 
     actions: {
         login(context , token, user) {
-            context.commit('setUser', user);
-            context.commit('setToken', token);
+            context.commit('SET_USER', user);
+            context.commit('SET_TOKEN', token);
             localStorage.setItem(AUTH_TOKEN_NAME, token);
         },
         logout({ commit }) {
-            commit("setUser", null);
-            commit("setToken", null);
+            commit("SET_USER", null);
+            commit("SET_TOKEN", null);
             localStorage.removeItem(AUTH_TOKEN_NAME);
         }
     }

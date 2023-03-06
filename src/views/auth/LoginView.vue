@@ -72,8 +72,8 @@ export default {
                         //     text: response.message
                         // })
                     } else {
-                        this.$store.commit('auth/setUser', response.user)
-                        this.$store.commit('auth/setToken', response.token)
+                        this.$store.commit('auth/SET_USER', response.user)
+                        this.$store.commit('auth/SET_TOKEN', response.token)
                         this.$router.push({ name: 'dashboard' })
                     }
                 })
